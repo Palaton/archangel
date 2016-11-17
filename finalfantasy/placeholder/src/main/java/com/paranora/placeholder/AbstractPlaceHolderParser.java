@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Created by yangqun on 2016/11/04.
  */
-public abstract   class AbstractPlaceHolderParser implements PlaceHolderParser {
+public abstract  class AbstractPlaceHolderParser implements PlaceHolderParser {
     public abstract PlaceHolderAnalyzer getPlaceHolderAnalyzer();
 
     @Override

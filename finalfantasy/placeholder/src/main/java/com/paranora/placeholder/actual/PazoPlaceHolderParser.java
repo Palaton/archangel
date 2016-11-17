@@ -8,17 +8,14 @@ import com.paranora.placeholder.PlaceHolderAnalyzer;
  */
 public class PazoPlaceHolderParser extends AbstractPlaceHolderParser {
 
-
     protected PlaceHolderAnalyzer placeHolderAnalyzer;
-
 
     public void setPlaceHolderAnalyzer(PlaceHolderAnalyzer placeHolderAnalyzer) {
         this.placeHolderAnalyzer = placeHolderAnalyzer;
     }
 
-
     public PazoPlaceHolderParser() {
-
+        placeHolderAnalyzer=new PazoPlaceHolderAnalyzer(new PazoPlaceHolderValidator(),new PazoPlaceHolderFinder());
     }
 
     public PazoPlaceHolderParser(PlaceHolderAnalyzer placeHolderAnalyzer) {
