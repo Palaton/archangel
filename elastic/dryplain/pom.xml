@@ -16,8 +16,8 @@
         <elasticsearch.version>2.4.0</elasticsearch.version>
         <!--<elasticsearch.version>5.0.0</elasticsearch.version>-->
         <guava.version>19.0</guava.version>
-        <!--<spring.version>4.3.2.RELEASE</spring.version>-->
-        <spring.version>4.2.6.RELEASE</spring.version>
+        <spring.version>4.3.2.RELEASE</spring.version>
+        <!--<spring.version>4.2.6.RELEASE</spring.version>-->
         <fastjson.version>1.1.34</fastjson.version>
         <commons-lang3.version>3.1</commons-lang3.version>
         <common-collections4.version>4.0</common-collections4.version>
@@ -67,17 +67,17 @@
             <version>4.0.2206.100</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.data</groupId>-->
-        <!--<artifactId>spring-data-elasticsearch</artifactId>-->
-        <!--<version>2.0.2.RELEASE</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>2.0.5.RELEASE</version>
+            <version>2.0.2.RELEASE</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.data</groupId>-->
+            <!--<artifactId>spring-data-elasticsearch</artifactId>-->
+            <!--<version>2.0.5.RELEASE</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>

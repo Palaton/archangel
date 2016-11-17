@@ -1,19 +1,13 @@
 package com.paranora;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-import com.alibaba.fastjson.serializer.ObjectArraySerializer;
-import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.AbstractMap;
 import java.util.Map;
 
-import static javafx.scene.input.KeyCode.J;
-import static org.apache.http.client.methods.RequestBuilder.put;
 
 /**
  * Created by yangqun on 2016/10/27.

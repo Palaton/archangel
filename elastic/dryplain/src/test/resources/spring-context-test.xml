@@ -12,12 +12,12 @@
 
     </beans>
 
-    <beans>
-        <elasticsearch:repositories base-package="com.paranora.SpringDataElasticSearch.Repositories"/>
-        <elasticsearch:transport-client id="client" cluster-name="es.cluster.a" cluster-nodes="10.4.254.30:9300"/>
-        <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
-            <constructor-arg name="client" ref="client"/>
-        </bean>
-    </beans>
+    <!--<beans>-->
+        <!--<elasticsearch:repositories base-package="com.paranora.SpringDataElasticSearch.Repositories"/>-->
+        <!--<elasticsearch:transport-client id="client" cluster-name="es.cluster.a" cluster-nodes="10.4.254.30:9300"/>-->
+        <!--<bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">-->
+            <!--<constructor-arg name="client" ref="client"/>-->
+        <!--</bean>-->
+    <!--</beans>-->
 
 </beans>
