@@ -3,12 +3,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.paranora</groupId>
-    <artifactId>zookeeper-parent</artifactId>
+    <artifactId>graphics-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>zookeeper-parent</name>
-    <modules>
-		<!--<module>aist-component-frontend</module>-->
-	</modules>
+    <name>graphics-parent</name>
 
+
+  <modules>
+    <module>imageMagick</module>
+  </modules>
 </project>
