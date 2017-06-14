@@ -5,8 +5,9 @@
     <groupId>com.paranora</groupId>
     <artifactId>elastic-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.3.3-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>elastic-parent</name>
+
     <modules>
 		<module>dryplain</module>
 	</modules>

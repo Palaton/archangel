@@ -26,11 +26,11 @@ public class Im4JavaUtils {
     /**
      * ImageMagick 安装目录
      **/
-    private static final String IMAGE_MAGICK_PATH = "C:\\Program Files\\ImageMagick-6.3.9-Q8";
+    private static final String IMAGE_MAGICK_PATH = "C:\\Program files\\ImageMagick-6.3.9-Q8";
     /**
      * GraphicsMagick 安装目录
      **/
-    private static final String GRAPHICS_MAGICK_PATH = "C:\\Program Files\\GraphicsMagick-1.3.23-Q8";
+    private static final String GRAPHICS_MAGICK_PATH = "C:\\Program files\\GraphicsMagick-1.3.23-Q8";
 
     /**
      * 获取 ImageCommand
@@ -98,7 +98,7 @@ public class Im4JavaUtils {
         op.format("%w,%h,%d,%f,%b");
         op.addImage(path);
         IdentifyCmd identifyCmd = (IdentifyCmd) getImageCommand("identify");
-        IdentifyCmd.setGlobalSearchPath("C:\\Program Files\\ImageMagick-6.3.9-Q8");
+        IdentifyCmd.setGlobalSearchPath("C:\\Program files\\ImageMagick-6.3.9-Q8");
         ArrayListOutputConsumer output = new ArrayListOutputConsumer();
         identifyCmd.setOutputConsumer(output);
         identifyCmd.run(op);
