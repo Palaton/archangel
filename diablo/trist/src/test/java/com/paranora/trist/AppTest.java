@@ -3,8 +3,8 @@ package com.paranora.trist;
 import com.paranora.trist.files.FileKeyGenerator;
 import com.paranora.trist.files.FilePathKeyGenerator;
 import com.paranora.trist.files.impl.LocalFileOperator;
-import junit.framework.TestCase;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,9 +21,9 @@ import java.util.GregorianCalendar;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( locations = {"classpath:/spring-context-test.xml"})
 @PropertySource("classpath:/application.properties")
-public class AppTest extends TestCase
+public class AppTest
 {
-    @org.junit.Test
+    @Test
     public void test(){
 
         String relativePath="abc";
