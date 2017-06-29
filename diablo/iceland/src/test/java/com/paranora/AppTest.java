@@ -43,6 +43,8 @@ public class AppTest {
         stringCollection
                 .stream()
                 .filter((s) -> s.startsWith("a"))
+                .filter((s)->s.length()>1)
+                .map((s)->"flyceek:"+s)
                 .forEach(System.out::println);
 
         System.out.println("hello.");
