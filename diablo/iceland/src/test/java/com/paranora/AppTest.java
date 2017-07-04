@@ -1,5 +1,6 @@
 package com.paranora;
 
+import io.reactivex.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.cglib.core.Converter;
@@ -40,11 +41,14 @@ public class AppTest {
         stringCollection.add("bbb2");
         stringCollection.add("ddd1");
 
+        String [] strArray = new String[] {"Aa", "Bb", "Cc"};
+
         stringCollection
                 .stream()
                 .filter((s) -> s.startsWith("a"))
                 .filter((s)->s.length()>1)
                 .map((s)->"flyceek:"+s)
+                .flatMap((s)->Stream.of(strArray))
                 .forEach(System.out::println);
 
         System.out.println("hello.");
@@ -111,5 +115,29 @@ public class AppTest {
         arrayList.add(1);
 
         arrayList.get(0);
+    }
+
+    @Test
+    public void test_004(){
+        Stream<List<Integer>> inputStream = Stream.of(
+                Arrays.asList(1),
+                Arrays.asList(2, 3),
+                Arrays.asList(4, 5, 6)
+        );
+        Stream<Integer> outputStream = inputStream.
+                flatMap((childList) -> childList.stream());
+
+        outputStream.forEach(System.out::println);
+    }
+
+    @Test
+    public void test_005(){
+
+        io.reactivex.Observable.create(new ObservableOnSubscribe<Object>() {
+            @Override
+            public void subscribe(ObservableEmitter<Object> observableEmitter) throws Exception {
+
+            }
+        });
     }
 }
