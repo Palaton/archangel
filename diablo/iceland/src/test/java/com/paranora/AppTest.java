@@ -1,8 +1,13 @@
 package com.paranora;
 
 import io.reactivex.*;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 import org.springframework.cglib.core.Converter;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ContextConfiguration;
@@ -133,11 +138,72 @@ public class AppTest {
     @Test
     public void test_005(){
 
-        io.reactivex.Observable.create(new ObservableOnSubscribe<Object>() {
+        Observable mObservable=io.reactivex.Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
-            public void subscribe(ObservableEmitter<Object> observableEmitter) throws Exception {
-
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                e.onNext(1);
+                e.onNext(2);
+                e.onComplete();
             }
         });
+
+        io.reactivex.Observer mObserver=new Observer<Integer>() {
+            //这是新加入的方法，在订阅后发送数据之前，
+            //回首先调用这个方法，而Disposable可用于取消订阅
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Integer value) {
+                System.out.println(value);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        mObservable.subscribe(mObserver);
     }
+
+    @Test
+    public void test_006(){
+        Flowable.range(0,10)
+                .subscribe(new Subscriber<Integer>() {
+                    Subscription sub;
+                    //当订阅后，会首先调用这个方法，其实就相当于onStart()，
+                    //传入的Subscription s参数可以用于请求数据或者取消订阅
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        System.out.println("TAG-onsubscribe start");
+                        sub=s;
+                        sub.request(1);
+                        System.out.println("TAG-onsubscribe end");
+                    }
+
+                    @Override
+                    public void onNext(Integer o) {
+                        System.out.println("TAG-onNext--->"+o);
+                        sub.request(1);
+                    }
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                    }
+                    @Override
+                    public void onComplete() {
+                        System.out.println("TAG-onComplete");
+                    }
+                });
+    }
+
+
 }

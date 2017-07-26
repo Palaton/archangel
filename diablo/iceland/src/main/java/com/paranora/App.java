@@ -1,5 +1,7 @@
 package com.paranora;
 
+import com.paranora.threadlab.Counter;
+
 /**
  * Hello world!
  *
