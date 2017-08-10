@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+    <property name="LOG_DIR" value="d:/logs"/>
+    <property name="nodename" value="${clusternode:-defaultNode}"/>
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/sales-web.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--<appender name="APILOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+    <!--<fileNamePattern>${LOG_DIR}/API_LOG_%d{yyyy-MM-dd}.log</fileNamePattern>-->
+    <!--<maxHistory>30</maxHistory>-->
+    <!--</rollingPolicy>-->
+    <!--<encoder>-->
+    <!--<pattern>[n:${nodename}] %date %level [%thread] %logger [%file : %line] %msg%n</pattern>-->
+    <!--</encoder>-->
+    <!--</appender>-->
+    <appender name="ACCESS_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/ACCESS_LOG_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date %level [%thread] %logger [%file : %line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.centaline" level="debug">
+    </logger>
+    <logger name="org.apache.http" level="WARN"/>
+    <logger name="httpclient" level="WARN"/>
+    <logger name="com.zaxxer.hikari.pool" level="INFO"/>
+    <logger name="net.sf.ehcache" level="warn"></logger>
+
+    <logger name="com.aist.common.shiro" level="error">
+    </logger>
+    <logger name="org.springframework" level="ERROR">
+    </logger>
+    <logger name="org.apache.zookeeper" level="ERROR">
+    </logger>
+    <logger name="org.springframework.remoting.httpinvoker" level="ERROR">
+    </logger>
+    <logger name="org.springframework.data.redis.cache" level="ERROR">
+    </logger>
+    <logger name=" org.apache.zookeeper" level="INFO">
+    </logger>
+    <logger name="org.springframework.beans.TypeConverterDelegate" level="ERROR">
+    </logger>
+
+    <logger name="org.redisson" level="INFO">
+    </logger>
+    <logger name="aist-access" additivity="false" level="INFO">
+        <appender-ref ref="ACCESS_LOG"/>
+    </logger>
+    <logger name="aist-access" additivity="false" level="INFO">
+        <appender-ref ref="ACCESS_LOG"/>
+    </logger>
+    <logger name="url.filter" additivity="false" level="ERROR">
+        <appender-ref ref="ACCESS_LOG"/>
+    </logger>
+    <logger name="org.apache.shiro" level="ERROR">
+    </logger>
+
+    <logger name="flyceek" level="TRACE">
+        <appender-ref ref="ACCESS_LOG"/>
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <!-- test tanmy -->
+    <!--<if condition='"${spring.profiles.active}" == "development"'>
+        <root level="DEBUG">
+            <appender-ref ref="STDOUT" />
+        </root>
+    </if>
+    <if condition='"${spring.profiles.active}" == "production"'>
+        <root level="ERROR">
+            <appender-ref ref="ROLLING_FILE" />
+        </root>
+    </if>-->
+
+</configuration>
