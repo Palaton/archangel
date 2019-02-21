@@ -18,9 +18,10 @@ public class AppTest {
 
     @org.junit.Test
     public void test_001(){
-        Logger logger = LoggerFactory.getLogger("flyceek");
-        logger.debug("Hello world.");
-        logger.info("abcdf");
+//        Logger logger = LoggerFactory.getLogger("flyceek");
+//        logger.debug("Hello world.");
+//        logger.info("abcdf");
+
 
         System.out.println("hello.");
     }
