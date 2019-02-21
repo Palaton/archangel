@@ -73,7 +73,7 @@ public class AppTest {
         }
         Date endTime = new Date();
         long between = (endTime.getTime() - startTime.getTime());
-        System.out.println(String.format("cost time : %d", between));
+        System.out.println(String.format("cost time : %d , count : %d", between,count));
 
         System.out.println("end.");
     }
